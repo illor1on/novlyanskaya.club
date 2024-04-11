@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ТЕСТ ДЛЯ РУКОВОДИТЕЛЯ</title>
+  </head>
+  <body>
+    <div class="start-page" id="start-page">
+      <p id="test-name"><b>Тест для руководителя</b></p>
+      <div>
+        Тест, позволяющий определить свои сильные стороны и проанализировать зоны развития. Понять основы взаимодействия с окружающими и распознать предпосылки конфликтных ситуаций.
+        Также вы сможете прогнозировать ситуации, на которые стоит обратить особое внимание и зафиксировать деструкторы (поведение, вызванное психологическими особенностями человека, мешающее добиваться успеха), требующие проработки.
+        Оцените себя по предложенным критериям согласно шкале от 1 до 10, где 1 – это наименее соответствующий балл, а 10 – максимально подходящий. При затруднении рекомендую ставить среднее значение – 5 баллов.
+      </div>
+      <div>
+        <button id="nextBtn">Начать тест</button>
+      </div>
+    </div>
+
+
+
+    <div class="questionnaire" id="questionnaire">
+      <div>
+        <label id="name" for="user-name">Имя</label>
+        <input
+          id="user-name"
+          placeholder=""
+          style="font-size: 20px;"
+          required
+        />
+        <label>Выберите пол</label>
+        <select required id="sex" class="sex">
+          <option value="Мужской">Мужской</option>
+          <option value="Женский">Женский</option>
+        </select>
+        <label>Выберите Ваш возраст</label>
+        <select required id="age" class="age">
+          <option value="До 20 лет">До 20 лет</option>
+          <option value="20-25 лет">20-25 лет</option>
+          <option value="25-35 лет">25-35 лет</option>
+          <option value="35-45 лет">35-45 лет</option>
+          <option value="Свыше 45 лет">Свыше 45 лет</option>
+        </select>
+
+
+      </div>
+        <button id="startBtn">Далее</button>
+    </div>
+
+
+
+    <div class="test">
+      <form id="hide">
+        <div id='questNum'></div>
+        <label id="quest" for="ans"> </label>
+        <input
+          id="ans"
+          type="number"
+          placeholder="Число от 1 до 10"
+          min="1"
+          max="10"
+          style="font-size: 20px;"
+          required
+        /><br />
+        <button id="btnCheck" type="submit">Отправить</button>
+      </form>
+      <button id="btnBack">Назад</button>
+      
+
+      <div class="result-body" id="result-body">
+        <p id="redResult" class="result"></p>
+        <br />
+        <p id="greenResult" class="result"></p>
+        <br />
+        <p id="blueResult" class="result"></p>
+        <br />
+        <canvas id="myCharts" width="300px" height="300px"></canvas><br/>
+        <br />
+        <p id="trueTotalValid" class="result"></p>
+        <br />
+        <p id="totalValid" class="result"></p>
+        <br />
+
+
+      </div>
+      </div>
+    </div>
+    <div class="full-description" id="full-description">
+      <h1>
+        Подробное описание психотипа
+      </h1>
+      <p id="full-body-description"></p>
+      <button id="moreBtn">Скачать подробный разбор</button><br/>
+    </div>
+    </a>
+  </body>
+</html>
+
+<style>
+  #test-name{
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .result {
+    color: #ff7300;
+  }
+  .test {
+    line-height: 30px;
+    margin: 0 auto;
+    max-width: 400px;
+    width: 100%;
+  }
+  input {
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    border-color: #ff7300;
+    padding: 4px;
+    
+  }
+
+  label {
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    display: block;
+    margin-bottom: 10px;
+    margin: 20px;
+  }
+
+  .result-body {
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #ff7300;
+    max-width: 800px;
+    text-align:center;
+  }
+
+  #btnCheck {
+    text-decoration: none;
+    display: block;
+    color: white;
+    padding: 10px 80px;
+    margin: 20px auto;
+    border-radius: 10px;
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+
+    color:#ffffff;background-color:#ff7300;
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+    border: none;
+  }
+
+  
+  .start-page{
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 10px;
+    margin:30px;
+
+  }
+  #startBtn {
+    text-decoration: none;
+    display: block;
+    color: white;
+    padding: 10px 80px;
+    margin: 20px auto;
+    border-radius: 10px;
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+
+    color:#ffffff;background-color:#ff7300;
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+    border: none;
+  }
+
+  #nextBtn {
+    text-decoration: none;
+    display: block;
+    color: white;
+    padding: 10px 80px;
+    margin: 20px auto;
+    border-radius: 10px;
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+
+    color:#ffffff;background-color:#ff7300;
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+    border: none;
+  }
+
+  #btnBack{
+    text-decoration: none;
+    display: block;
+    color: white;
+    padding: 10px 80px;
+    margin: 20px auto;
+    border-radius: 10px;
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+
+    color:#ffffff;background-color:#ff7300;
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+    border: none;
+  }
+
+  #questNum{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 10px;
+    margin: 20px;
+  }
+
+  #moreBtn{
+    text-decoration: none;
+    display: block;
+    color: white;
+    padding: 5px 5px;
+    margin: 20px auto;
+    border-radius: 10px;
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+
+    color:#ffffff;background-color:#ff7300;
+    background-size: 300% auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+    border: none;
+    max-width: 200px;
+  }
+
+  .sex{
+    font-size: 20px;
+    border-radius: 10px;
+    width: 100%;
+    height:40px;
+    border-color:#ff7300;
+  }
+  .sex option:first-child{
+    font-size: 20px;
+  }
+
+  .age{
+    font-size: 20px;
+    border-radius: 10px;
+    width: 100%;
+    height:40px;
+    border-color:#ff7300;
+    padding: 4px;
+  }
+  .age option:first-child{
+    font-size: 20px;
+  }
+
+  .education{
+    font-size: 20px;
+    border-radius: 10px;
+    width: 100%;
+    height:40px;
+    border-color:#ff7300;
+    padding: 4px;
+  }
+  .education option:first-child{
+    font-size: 20px;
+  }
+
+  .hand{
+    font-size: 20px;
+    border-radius: 10px;
+    width: 100%;
+    height:40px;
+    border-color:#ff7300;
+    padding: 4px;
+  }
+  .hand option:first-child{
+    font-size: 20px;
+  }
+
+  .open{
+    font-size: 20px;
+    border-radius: 10px;
+    width: 100%;
+    height:40px;
+    border-color:#ff7300;
+    padding: 4px;
+  }
+  .open option:first-child{
+    font-size: 20px;
+  }
+
+  .questionnaire{
+    text-align: left;
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    max-width: 500px;
+    padding: 10px;
+    margin: 0 auto;
+  }
+
+
+.full-description{
+  text-align: center;
+  max-width: 1000px; 
+  color: #000000;
+  line-height: 30px;
+  margin: 0 auto;
+  width: 100%;
+  font-size: 20px;
+
+
+  
+}
+
+
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+<script>
+  var psychotype;
+  var ref;
+  var descriprion_1 = '«Лидер»  крайне насторожено относится  к психотипам, у которых  «лидерские» качества стоят на последнем месте. Нейтрально  к тем, у которых «лидерские» качества стоят на втором месте. И вполне рабочая обстановка складывается с  другими «лидерами». Но при одном условии. Если у них выстроена иерархия и субординация.  Пока этого не произошло, они могут очень сильно друг друга раздражать и выводить из эмоционального равновесия.';
+  var descriprion_2 = 'Настороженные отношения с психотипами  у которых «лидерские» качества находятся на последнем месте, после «аналитических» и «партнерских». Нейтральные отношения   с теми, у кого «лидерские» качества находятся на втором месте, после основных. С психотипами  АСВ, АВС, АС-в, АВ-с  отношения складываются практически на равных и рабочими, а вот с психотипом АА-вс отношения могут быть крайне напряженными, потому что они основаны на конкуренции.  И будут такими до тех пор, пока они не договорятся между собой.';
+  var descriprion_3 = 'С психотипами «аналитического» типа всегда складываются сложные отношения. Они немного побаиваются такой энергии, которая не оставляет им места. Также очень сложно складываются  с партнерскими»  психотипами у которых «аналитика» стоит на втором месте. Нейтральные отношения  с «лидерами»  со вторым аналитическим, с «партнерскими»  со вторым лидерским» и очень дружеские  с некоторыми «лидерскими». Очень особые отношения  складываются с психотипом АА-вс. Пока они не познакомятся поближе и не смогут построить иерархические  взаимоотношения';
+  var descriprion_4 = 'Благоприятно складываются взаимоотношения с психотипами «лидерского» типа. И даже АА-вс, который на многих действует как раздражитель, во взаимодействии с ним становится более организованным, спокойным и эффективным. Нейтральные отношения складываются  в основном с психотипами, у которых «лидерский» тип вторым. Заметьте, что АВС, который является «лидерским»  тоже  воспринимается скорее нейтрально, чем благоприятно. Настороженное отношение с психотипами, у которых «лидерские» качества находятся  последнем месте';
+  var descriprion_5 = 'Психотип АВ-с относится скорее к смешанному типу, чем к «лидерскому», хотя в названии у него и стоит «лидер-партнер». При одинаковом количестве «лидерских» и «партнерских» качеств «лидерские» качества более заметны. Наличие на высоком уровне тех и других позволяет ему успешно взаимодействовать  и с «лидерами» и с «партнерами». Ну это как минимум, а потом уже  исходить из других критериев. Наименее благоприятно складываются отношения  с психотипами, у которых «аналитические» качества являются доминирующими.';
+  var descriprion_6 = 'Психотип АС-в относится скорее к смешанному типу, чем к «лидерскому», хотя в названии у него и стоит «лидер-аналитик». При одинаковом количестве «лидерских» и «аналитических» качеств «лидерские» качества более заметны. Наличие на высоком уровне тех и других позволяет им успешно взаимодействовать  и с «лидерами» и с «аналитиками». Наименее благоприятно складываются отношения  с психотипами, у которых «партнерские» качества являются доминирующими. Обратите внимание, что чем ближе к центру находится психотип, тем с большим количеством окружающих его людей у него складываются хорошие отношения.';
+  var descriprion_7 = '«Партнер» (ВВ-ас) практически со всеми может найти общий язык, но не со всеми складываются очень дружеские отношения. Психотипы, у которых «партнерские» качества находятся на последнем месте, не очень хорошо воспринимают слишком много эмоций, которые он выдает и словарный запас в день, в несколько раз больше, чем у них самих. Смешанные психотипы в этом случае гораздо более терпимы и воспринимают его нейтрально.';
+  var descriprion_8 = 'Действующий-думающий партнер очень дружелюбно воспринимает  все «партнерские» психотипы. А также тех, у кого  «партнерские» качества  вторыми–СВА и АВС. Но взаимная настороженность и непонимание с ярко выраженными «Аналитиками» и «Лидерами» и теми, у кого «партнерские» стоят на последнем месте.';
+  var descriprion_9 = 'ВАС (действующий партнер) очень хорошо взаимодействует с «партнерскими»  и смешанными психотипами. С «лидерскими», если у них «партнерские» качества находятся на втором месте. Настороженные и часто взаимно с аналитическими», у которых «партнерские» качества выражены менее всего.';
+  var descriprion_10 = 'С родственными «партнерскими» психотипами  легко находит общий язык и хорошо взаимодействует. Со смешанными психотипами отношения эмоционально нейтральные, все зависит от общих целей и поставленных задач. С сильно «лидерскими» психотипами отношения складываются очень натянуто и старается сохранить с ними возможно большую дистанцию.';
+  var descriprion_11 = 'Психотип ВС-а (партнер-аналитик) относится скорее к смешанному типу, чем к «партнерскому», хотя в названии у него и стоит «партнер-аналитик». При одинаковом количестве «партнерских» и аналитических» качеств «партнерские» качества более заметны. Но наличие на высоком уровне тех и других позволяет им успешно взаимодействовать  и с партнерами» и с «аналитиками».  А потом уже  исходить из других критериев. Наименее благоприятно складываются отношения  с психотипами, у которых «лидерские» качества являются доминирующими.';
+  var descriprion_12 = 'Из чего складывается характер и поведение человека? В первую очередь это психотип (неизменяемая часть)  во-вторую: воспитание (семья, друзья, окружение и т.п.), полученное образование  и законы (правила)  в которых он существует. Исходя из первой части (выраженности поведенческих индикаторов)  и второй части,  предпочтения могут заметно отличаться даже в пределах одного психотипа. Только с «аналитическими» психотипами  складывается действительно хорошее взаимопонимание. С «лидерскими» практически со всеми обычна по возможности максимальная дистанция, чтобы не травмировать психику друг друга.  С ярко выраженными «партнерскими»  также очень редко складываются по-настоящему дружеские отношения. Это требует очень глубокой работы над собой  и понимания других людей.';
+  var descriprion_13 = 'Из чего складывается характер и поведение человека? В первую очередь это психотип (неизменяемая часть)  во-вторую: воспитание (семья, друзья, окружение и т.п.), полученное образование  и законы (правила)  в которых он существует. Исходя из первой части (выраженности поведенческих индикаторов)  и второй части,  предпочтения могут заметно отличаться даже в пределах одного психотипа. Хорошо взаимодействует с психотипами, у которых ведущий психотип «аналитический». Нейтральное или благоприятное взаимодействие с психотипами, у которых «аналитические» качества стоят на втором месте. Настороженное, а иногда даже неприязненные отношения складываются с психотипами, у которых аналитические» качества находятся на последнем месте.';
+  var descriprion_14 = 'Хорошо взаимодействует с психотипами «аналитического» типа. Спокойно-нейтральное взаимодействие с психотипами, у которых «аналитический» психотип второй по выраженности. Не очень хорошо складывается сотрудничество с психотипами, у которых «аналитический» психотип выражен слабо.';
+  var descriprion_15 = 'Очень хорошо взаимодействует с психотипами «аналитического» типа. Спокойно-нейтральное взаимодействие с психотипами, у которых «аналитический» психотип второй по выраженности. Не очень хорошо складывается сотрудничество с психотипами, у которых «аналитический» психотип выражен слабо.';
+  var descriprion_16 = 'Представители это психотипа не случайно называются «переговорщик». Они прекрасно взаимодействуют практически со всеми психотипами. Кроме крайне выраженных «лидеров» и «аналитиков»';
+
+
+
+  document.getElementById("moreBtn").style.display = "none";
+  document.getElementById("hide").style.display = "none";
+  document.getElementById("questionnaire").style.display = "none";
+  document.getElementById("start-page").style.display = "block";
+  document.getElementById("result-body").style.display = "none";
+  document.getElementById('full-description').style.display = "none";
+  
+  function startTest(){
+    document.getElementById("start-page").style.display = "none";
+    document.getElementById("hide").style.display = "block";
+    document.getElementById("questionnaire").style.display = "none";
+  }
+  function toQuestionnaire(){
+    document.getElementById("start-page").style.display = "none";
+    document.getElementById("hide").style.display = "none";
+    document.getElementById("questionnaire").style.display = "block";
+  }
+
+  document.getElementById("nextBtn").addEventListener("click", toQuestionnaire);
+  document.getElementById("startBtn").addEventListener("click", startTest);
+  document.getElementById("btnBack").addEventListener("click", goBack);
+  document.getElementById("btnCheck").addEventListener("click", nextQuest);
+  document.getElementById('moreBtn').addEventListener("click", showMoreAboutPsychotype);
+
+
+  var questions = [
+    "Насколько Вы осторожны?",
+    "Вы терпеливы?",
+    "Вас можно назвать заботливым?",
+    "Насколько Вы закрыты?",
+    "Вы считаете себя конфликтным человеком?",
+    "Вашу уступчивость можно оценить на … баллов",
+    "Насколько Вы замкнуты?",
+    "Как Вы оцените свою целеустремленность?",
+    "Вы очень упрямы?",
+    "Ваша самонадеянность?",
+    "Насколько Вы вежливы?",
+    "Ваша недоверчивость?",
+    "Насколько Вы эгоцентричны?",
+    "Обычно Вы выдержаны?",
+    "Вы аккуратны?",
+    "Ваше лидерство как можно оценить?",
+    "Насколько педантичны?",
+    "Насколько Вы стрессоустойчивы?",
+    "Оцените свою доброжелательность?",
+    "Насколько Вы исполнительны?",
+    "Моя настойчивость оценивается в … баллов?",
+    "Вы считаете себя эмоционально убедительным человеком?",
+    "Во сколько баллов оцените свою инициативность?",
+    "Вы эмоциональны?",
+    "Вы очень доверчивый человек?",
+    "Вы импульсивны?",
+    "Как полагаете, Вы восторженный человек?",
+    "Насколько Вас можно назвать скептиком?",
+    "Оцените свою тревожность",
+    "Креативность",
+    "Вы приветливы?",
+    "Вы быстро обучаетесь?",
+    "Вы считаете себя ответственным?",
+    "Насколько Вы пунктуальны?",
+    "Вы можете назвать себя обязательным?",
+    "Ваша жизнерадостность?",
+    "Оцените свою коммуникабельность",
+    "Насколько Вы улыбчивы?",
+    "Вы считаете себя убедительным логически человеком?",
+    "Вы любите помогать другим?",
+    "Вы считаете себя решительным человеком?",
+  ];
+  document.getElementById("quest").innerHTML = questions[0];
+  var answers = [];
+  i = 0;
+  document.getElementById("btnBack").style.display = 'none';
+  document.getElementById('questNum').innerHTML = 'Вопрос  '+(i+1).toString()+'/41';
+
+  function goBack(){
+    answers.pop();
+    i--;
+    document.getElementById("quest").innerHTML = questions[i];
+    document.getElementById("ans").value = "";
+    document.getElementById('questNum').innerHTML = 'Вопрос  '+(i+1).toString()+'/41';
+    if (i<1)
+      document.getElementById("btnBack").style.display = 'none';
+  }
+  
+
+  function nextQuest(e) {
+    e.preventDefault();
+    answer = Number(document.getElementById("ans").value);
+    if (answer > 10 || answer < 1){
+      alert("Ответы должны иметь значения от 1 до 10!");
+    }
+    else{
+    i++;
+    answers.push(answer);
+    document.getElementById("quest").innerHTML = questions[i];
+    document.getElementById("ans").value = "";
+    document.getElementById('questNum').innerHTML = 'Вопрос  '+(i+1).toString()+'/41';
+    if (i>=1){
+      document.getElementById("btnBack").style.display = 'block';
+    }
+  }
+    
+    
+    if (i > 40) {
+      document.getElementById("hide").style.display = "none";
+      document.getElementById("btnBack").style.display = 'none';
+      checkAnswers();
+    }
+  }
+
+  function checkAnswers() {
+    var redSum;
+    var blueSum;
+    var greenSum;
+
+    blueSum =
+      answers[0] +
+      answers[3] +
+      answers[6] +
+      answers[8] +
+      answers[10] +
+      answers[11] +
+      answers[12] +
+      answers[13] +
+      answers[14] +
+      answers[16] +
+      answers[19] +
+      answers[27] +
+      answers[28] +
+      answers[32] +
+      answers[33] +
+      answers[34] +
+      answers[38];
+    redSum =
+      answers[4] +
+      answers[7] +
+      answers[8] +
+      answers[9] +
+      answers[12] +
+      answers[15] +
+      answers[20] +
+      answers[21] +
+      answers[22] +
+      answers[24] +
+      answers[25] +
+      answers[29] +
+      answers[31] +
+      answers[32] +
+      answers[35] +
+      answers[36] +
+      answers[40];
+    greenSum =
+      answers[1] +
+      answers[2] +
+      answers[5] +
+      answers[10] +
+      answers[14] +
+      answers[17] +
+      answers[18] +
+      answers[19] +
+      answers[23] +
+      answers[24] +
+      answers[26] +
+      answers[29] +
+      answers[30] +
+      answers[35] +
+      answers[36] +
+      answers[37] +
+      answers[39];
+
+    totalSum = blueSum + redSum + greenSum;
+    var redPercent = (redSum * 100) / totalSum;
+    var bluePercent = (blueSum * 100) / totalSum;
+    var greenPercent = (greenSum * 100) / totalSum;
+
+    redPercent = redPercent.toFixed(2);
+    bluePercent = bluePercent.toFixed(2);
+    greenPercent = greenPercent.toFixed(2);
+
+    var valid1;
+    var valid2;
+
+    valid1 =
+      Math.abs(answers[0] - answers[4] - (answers[0] - answers[37])) +
+      Math.abs(answers[1] - answers[9]) +
+      Math.abs(answers[3] - answers[15]) +
+      Math.abs(answers[4] - answers[10] - (answers[4] - answers[30])) +
+      Math.abs(answers[6] - answers[20] - (answers[6] - answers[37])) +
+      Math.abs(answers[11] - answers[36]) +
+      Math.abs(answers[13] - answers[23]);
+    valid2 =
+      Math.abs(answers[0] - answers[11]) +
+      Math.abs(answers[3] - answers[6]) +
+      Math.abs(answers[4] - answers[8]) +
+      Math.abs(answers[8] - answers[19]) +
+      Math.abs(answers[10] - answers[14]) +
+      Math.abs(answers[11] - answers[27]) +
+      Math.abs(answers[15] - answers[22]) +
+      Math.abs(answers[23] - answers[26]) +
+      Math.abs(answers[32] - answers[34]) +
+      Math.abs(answers[33] - answers[16]);
+
+    document.getElementById("redResult").innerHTML =
+      "Красный: " + redPercent.toString();
+    document.getElementById("blueResult").innerHTML =
+      "Синий: " + bluePercent.toString();
+    document.getElementById("greenResult").innerHTML =
+      "Зеленый: " + greenPercent.toString();
+
+    //document.getElementById("valid1").innerHTML =
+      //"Расхождение по антагонистам. Больше -лучше: " + valid1.toString();
+    //document.getElementById("valid2").innerHTML =
+      //"Расхождение по схожим вопросам. Меньше - лучше: " + valid2.toString();
+
+    var trueValue1 = 100 - (valid1 * 100) / 63;
+    var trueValue2 = 100 - (valid2 * 100) / 90;
+    var trueValueTotal = ((trueValue1 + trueValue2) / 2).toFixed(2);
+
+    document.getElementById("trueTotalValid").innerHTML =
+      "Достоверность в процентах: " + trueValueTotal.toString();
+
+
+    var typesArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+
+    //1
+    if (redPercent - Math.max(greenPercent, bluePercent) > 10)
+      typesArray[0] = 1;
+    else typesArray[0] = 0;
+
+    //2
+    if (
+      redPercent - Math.max(greenPercent, bluePercent) <= 10 &&
+      redPercent - Math.max(greenPercent, bluePercent) >= 3 &&
+      redPercent - bluePercent > 0 &&
+      redPercent - greenPercent > 0 &&
+      Math.abs(greenPercent - bluePercent)<=1
+    )
+      typesArray[1] = 1;
+    else typesArray[1] = 0;
+
+    //3
+    if (
+      typesArray[0] == 1 ||
+      typesArray[1] == 1 ||
+      typesArray[15] == 1 ||
+      typesArray[12] == 1
+    )
+      typesArray[2] = 0;
+    else if (redPercent > greenPercent && greenPercent > bluePercent)
+      typesArray[2] = 1;
+    else typesArray[2] = 0;
+
+    //4
+    if (
+      typesArray[0] == 1 ||
+      typesArray[1] == 1 ||
+      typesArray[15] == 1 ||
+      typesArray[13] == 1
+    )
+      typesArray[3] = 0;
+    else if (redPercent > bluePercent && bluePercent > greenPercent )
+      typesArray[3] = 1;
+    else typesArray[3] = 0;
+
+    //5
+    if (
+      greenPercent - Math.max(redPercent, bluePercent) <= 10 &&
+      greenPercent - Math.max(redPercent, bluePercent) >= 3 &&
+      greenPercent - bluePercent > 0 &&
+      greenPercent - redPercent > 0 &&
+      Math.abs(redPercent - bluePercent) <= 1
+    )
+      typesArray[4] = 1;
+    else typesArray[4] = 0;
+
+    //6
+    if (
+      greenPercent - Math.max(redPercent, bluePercent) <= 10 &&
+      greenPercent - Math.max(redPercent, bluePercent) >= 3 &&
+      greenPercent - bluePercent > 0 &&
+      greenPercent - redPercent > 0 &&
+      Math.abs(redPercent - bluePercent) <= 1
+    )
+      typesArray[5] = 1;
+    else typesArray[5] = 0;
+
+    //7
+    if (
+      typesArray[4] == 1 ||
+      typesArray[5] == 1 ||
+      typesArray[15] == 1 ||
+      typesArray[14] == 1
+    )
+      typesArray[6] = 0;
+    else if (greenPercent > redPercent && redPercent > bluePercent){
+      typesArray[6] = 1;
+      console.log('hui');
+    }
+    else typesArray[6] = 0;
+    
+
+    //8
+    if (
+      typesArray[4] == 1 ||
+      typesArray[5] == 1 ||
+      typesArray[15] == 1 ||
+      typesArray[14] == 1
+    )
+      typesArray[7] = 0;
+    else if (greenPercent > bluePercent && bluePercent > redPercent)
+      typesArray[7] = 1;
+    else typesArray[7] = 0;
+
+    //9
+    if (bluePercent - Math.max(redPercent, greenPercent) > 10)
+      typesArray[8] = 1;
+    else typesArray[8] = 0;
+
+    //10
+    if (
+      bluePercent - Math.max(redPercent, greenPercent) <= 10 &&
+      bluePercent - Math.max(redPercent, greenPercent) >= 3 &&
+      bluePercent - redPercent > 0 &&
+      bluePercent - greenPercent > 0 &&
+      Math.abs(redPercent - greenPercent) <= 1
+    )
+      typesArray[9] = 1;
+    else typesArray[9] = 0;
+
+    //11
+    if (
+      typesArray[8] == 1 ||
+      typesArray[9] == 1 ||
+      typesArray[15] == 1 ||
+      typesArray[14] == 1
+    )
+      typesArray[10] = 0;
+    else if (bluePercent > greenPercent && greenPercent > redPercent)
+      typesArray[10] = 1;
+    else typesArray[10] = 0;
+
+    //12
+    if (
+      typesArray[8] == 1 ||
+      typesArray[9] == 1 ||
+      typesArray[15] == 1 ||
+      typesArray[14] == 1
+    )
+      typesArray[10] = 0;
+    else if (bluePercent > redPercent && redPercent > greenPercent)
+      typesArray[11] = 1;
+    else typesArray[11] = 0;
+
+    //13
+    if (
+      Math.abs(redPercent - greenPercent) <= 1 &&
+      redPercent > bluePercent &&
+      greenPercent > bluePercent
+    )
+      typesArray[12] = 1;
+    else typesArray[12] = 0;
+
+    //14
+    if (
+      Math.abs(redPercent - bluePercent) <= 1 &&
+      redPercent > greenPercent &&
+      bluePercent > greenPercent
+    )
+      typesArray[13] = 1;
+    else typesArray[13] = 0;
+
+    //15
+    if (
+      Math.abs(greenPercent - bluePercent) <= 1 &&
+      greenPercent > redPercent &&
+      bluePercent > redPercent
+    )
+      typesArray[14] = 1;
+    else typesArray[14] = 0;
+
+    //16
+    if (
+      Math.abs(redPercent - greenPercent) < 1 &&
+      Math.abs(greenPercent - bluePercent) < 1 &&
+      Math.abs(redPercent - bluePercent) < 1
+    )
+      typesArray[15] = 1;
+    else typesArray[15] = 0;
+
+    
+
+    
+
+
+    if (typesArray[0] == 1) {
+      psychotype = "A-bc"; 
+      document.getElementById('full-body-description').innerHTML = descriprion_1;
+      ref = 'http://h213069645.nichost.ru/wp-content/uploads/2022/10/1.-3-1.pdf';
+    }
+    else if (typesArray[1] == 1) {
+      psychotype = "A-bc"; 
+      document.getElementById('full-body-description').innerHTML = descriprion_2;
+      ref = 'http://h213069645.nichost.ru/wp-content/uploads/2022/10/2.-3..pdf';
+    }
+    else if (typesArray[2] == 1) {
+      psychotype = "ABC"; 
+      document.getElementById('full-body-description').innerHTML = descriprion_3;
+      ref = 'http://h213069645.nichost.ru/wp-content/uploads/2022/10/3.-3.pdf';
+    }
+    else if (typesArray[3] == 1) {
+      psychotype = "ACB"; 
+      document.getElementById('full-body-description').innerHTML = descriprion_4;
+      ref = 'http://h213069645.nichost.ru/wp-content/uploads/2022/10/4.-3..pdf';
+    }
+    else if (typesArray[4] == 1) {
+      psychotype = "B-ac"; 
+      document.getElementById('full-body-description').innerHTML = descriprion_8;
+      ref = 'http://h213069645.nichost.ru/wp-content/uploads/2022/10/8.-3..pdf';
+    }
+    else if (typesArray[5] == 1) {
+      psychotype = "B-ac"; 
+      document.getElementById('full-body-description').innerHTML = descriprion_7;
+      ref = 'http://h213069645.nichost.ru/wp-content/uploads/2022/10/7.-3..pdf';
+    }
+    else if (typesArray[6] == 1) {
+      psychotype = "BAC"; 
+      document.getElementById('full-body-description').innerHTML = descriprion_9;
+      ref = 'http://h213069645.nichost.ru/wp-content/uploads/2022/10/9.-3..pdf';
+    }
+    else if (typesArray[7] == 1) {
+      psychotype = "BCA"; 
+      document.getElementById('full-body-description').innerHTML = descriprion_10;
+      ref = 'http://h213069645.nichost.ru/wp-content/uploads/2022/10/10.-3..pdf';
+    }
+    else if (typesArray[8] == 1) {
+      psychotype = "C-ab"; 
+      document.getElementById('full-body-description').innerHTML = descriprion_13;
+      ref = 'http://h213069645.nichost.ru/wp-content/uploads/2022/10/13.-3..pdf';
+    }
+    else if (typesArray[9] == 1) {
+      psychotype = "C-ab"; 
+      document.getElementById('full-body-description').innerHTML = descriprion_12;
+      ref = 'http://h213069645.nichost.ru/wp-content/uploads/2022/10/12.-3..pdf';
+    }
+    else if (typesArray[10] == 1) {
+      psychotype = "СBA"; 
+      document.getElementById('full-body-description').innerHTML = descriprion_15;
+      ref = 'http://h213069645.nichost.ru/wp-content/uploads/2022/10/15.-3..pdf';
+    }
+    else if (typesArray[11] == 1) {
+      psychotype = "CAB"; 
+      document.getElementById('full-body-description').innerHTML = descriprion_14;
+      ref = 'http://h213069645.nichost.ru/wp-content/uploads/2022/10/14.-3..pdf';
+    }
+    else if (typesArray[12] == 1) {
+      psychotype = "AB-c"; 
+      document.getElementById('full-body-description').innerHTML = descriprion_5;
+      ref = 'http://h213069645.nichost.ru/wp-content/uploads/2022/10/5.-3..pdf'
+    }
+    else if (typesArray[13] == 1) {
+      psychotype = "AC-b"; 
+      document.getElementById('full-body-description').innerHTML = descriprion_6;
+      ref = 'http://h213069645.nichost.ru/wp-content/uploads/2022/10/6.-3..pdf'
+    }
+    else if (typesArray[14] == 1) {
+      psychotype = "BC-a"; 
+      document.getElementById('full-body-description').innerHTML = descriprion_11;
+      ref = 'http://h213069645.nichost.ru/wp-content/uploads/2022/10/11.-3..pdf'
+    }
+    else if (typesArray[15] == 1) {
+      psychotype = "abc"; 
+      document.getElementById('full-body-description').innerHTML = descriprion_16;
+      ref = 'http://h213069645.nichost.ru/wp-content/uploads/2022/10/16.-3..pdf'
+    }
+
+    document.getElementById("totalValid").innerHTML =
+      "Ваш психотип: " + psychotype;
+
+ 
+    
+    document.getElementById("result-body").style.display = "block";
+
+    //window.scrollTo(0, 10000);
+    var ctx = document.querySelector('#myCharts').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: [
+    'Лидер',
+    'Партнер',
+    'Аналитик'
+    ],
+  datasets: [{
+    label: 'My First Dataset',
+    data: [redPercent, greenPercent, bluePercent],
+    backgroundColor: [
+      'rgb(255,0,0)',
+      'rgb(0,250,0)',
+      'rgb(0,0,225)'
+    ],
+    hoverOffset: 4
+  }]
+    }
+  });
+
+  //Показ развернутого описания
+  document.getElementById('full-description').style.display = "block";
+}
+  function showMoreAboutPsychotype(){
+    window.open(ref);
+  }
+</script>
